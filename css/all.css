@@ -1,0 +1,119 @@
+body {
+  font-family: "Fira Sans", "Open Sans", sans-serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  background: rgb(30, 30, 30);
+  color: rgb(255, 255, 255);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 6px 12px;
+  text-transform: uppercase;
+  color: rgb(160, 160, 160);
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+ul {
+  margin: 8px 16px;
+}
+
+a {
+  color: rgb(255, 255, 255);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin: 20px;
+  font-size: 0.9em;
+  color: rgb(200, 200, 200);
+}
+
+#back {
+  top: 20px;
+  left: 20px;
+  position: absolute;
+  opacity: 0.5;
+  z-index: 100;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+}
+
+#back a {
+  color: rgb(200, 200, 200);
+}
+
+#back:hover {
+  opacity: 1;
+}
+
+#index {
+  margin: 20px 40px;
+  text-align: center;
+}
+
+#index > a {
+  width: 320px;
+  height: 180px;
+  position: relative;
+  display: inline-block;
+  
+  border: 1px solid rgb(200, 200, 200);
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  margin: 10px;
+}
+
+#index > a h2 {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+
+canvas {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  height: 100%;
+  
+  margin: auto;
+}
+
+#spirograph form {
+  float: right;
+  
+  padding: 8px 16px;
+  margin: 12px;
+  
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+}
+
+#spirograph form div label {
+  display: inline-block;
+  width: 100px;
+  
+  vertical-align: middle;
+  font-weight: bold;
+  margin: 2px;
+}
+
+#spirograph form div input {
+  width: 300px;
+  
+  vertical-align: middle;
+  margin: 2px;
+}

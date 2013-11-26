@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>Web Experiments &mdash; Spirograph</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link href="img/icons/16.png" type="image/png" rel="icon" />
+    <link href="css/reset.css" media="all" type="text/css" rel="stylesheet" />
+    <link href="css/fonts.css" media="all" type="text/css" rel="stylesheet" />
+    <link href="css/all.css" media="all" type="text/css" rel="stylesheet" />
+    <link href="css/tablet.css" media="all and (max-width: 768px)" type="text/css" rel="stylesheet" />
+    <link href="css/phone.css" media="all and (max-width: 480px)" type="text/css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+
+    <aside id="back">
+      <a href="index.html">
+        <span class="fa fa-chevron-circle-left fa-2x"></span>
+      </a>
+    </aside>
+
+    <section id="spirograph">
+
+      <form id="spirograph-options">
+        <div>
+          <label>Radius</label> <input type="range" min="1" max="100" step="1" value="8" />
+        </div>
+
+        <div>
+          <label>Corners</label> <input type="range" min="1" max="200" step="1" value="21" />
+        </div>
+
+        <div>
+          <label>Pen Offset</label> <input type="range" min="-150" max="150" step="1" value="150" />
+        </div>
+      </form>
+
+      <canvas id="spirograph-canvas" width="1024" height="1024"></canvas>
+
+    </section>
+
+    <script src="js/spirograph.js"></script>
+
+  </body>
+</html>
