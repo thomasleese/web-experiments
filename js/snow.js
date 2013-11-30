@@ -1,34 +1,47 @@
 (function() {
 
   var Flake = function() {
-    this.reset();
-    this.y = Math.random() * window.innerHeight;
+    this.radius = Math.random() * 3 + 1;
+
+    this.pos = {
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+    };
+
+    this.velocity = { x: 0, y: 0 };
   };
 
-  Flake.prototype.reset = function() {
-    this.x = Math.random() * window.innerWidth;
-    this.y = -10;
-    this.angle = Math.random() * 0.3 + Math.PI / 2 - 0.1;
-    this.speed = Math.random() * 2 + 1;
-    this.radius = Math.random() * 3 + 1;
+  Flake.prototype.wrapValues = function() {
+    var v = this.radius * 0.9;
+    this.velocity.y = Math.min(this.velocity.y, v);
+    this.velocity.x = Math.min(Math.max(this.velocity.x, -v / 5), v / 5);
+
+    var height = window.innerHeight + this.radius * 2;
+    if (this.pos.y > window.innerHeight + this.radius) {
+      this.pos.y -= height;
+    }
+
+    var width = window.innerWidth + this.radius * 2;
+    if (this.pos.x < -this.radius) {
+      this.pos.x += width;
+    }
+
+    if (this.pos.x > window.innerWidth + this.radius) {
+      this.pos.x -= width;
+    }
   };
 
   Flake.prototype.tick = function(ctx) {
-    this.x += this.speed * Math.cos(this.angle);
-    this.y += this.speed * Math.sin(this.angle);
-    this.angle += 0.01 - Math.random() * 0.02;
+    this.velocity.y += 0.4 - 0.5 * Math.random();
+    this.velocity.x += 0.05 - 0.1 * Math.random();
+    this.pos.x += this.velocity.x;
+    this.pos.y += this.velocity.y;
 
-    //console.log(this.x, this.y);
+    this.wrapValues();
 
-    if (this.y > window.innerHeight + this.radius) {
-      this.reset();
-    }
-
-    if (this.x > -this.radius && this.x < window.innerWidth + this.radius) {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fill();
-    }
+    ctx.beginPath();
+    ctx.arc(this.pos.x, this.pos.y, this.radius, 0, Math.PI * 2);
+    ctx.fill();
   };
 
   var canvas = document.getElementById("snow-canvas");
