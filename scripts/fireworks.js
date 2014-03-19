@@ -5,15 +5,17 @@
     return "hsl(" + h + ", 80%, 60%)";
   };
 
-  var playExplosion = function() {
-    var i = Math.floor(2 * Math.random());
-    var audio = new Audio("sounds/fireworks/explosion" + i + ".wav");
+  var playSound = function(name) {
+    var audio = new Audio("sounds/fireworks/" + name + ".wav");
     audio.play();
   };
 
+  var playExplosion = function() {
+    playSound("explosion" + Math.floor(2 * Math.random()));
+  };
+
   var playKick = function() {
-    var audio = new Audio("sounds/fireworks/kick.wav");
-    audio.play();
+    playSound("kick");
   };
 
   var Particle = function(pos, vel, colour, life) {
